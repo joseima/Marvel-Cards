@@ -1,0 +1,63 @@
+@import "../../sass/globals.sass"
+
+.character_card
+  background-color: $color-primary
+  display: flex
+  flex-flow: column wrap
+  align-items: center
+  justify-content: space-between
+  width: 200px
+  max-width: 1600px
+  margin: 0px auto 10px
+  padding: 0px
+  box-sizing: border-box
+  cursor: pointer
+  position: relative
+  transition: all .3s ease-out
+  & > .thumb
+    width: 200px
+    height: 200px
+    margin: 0
+  & > .card_name
+    width: 100%
+    margin: 0
+    padding: 0 5%
+    text-align: center
+    display: flex
+    flex-flow: row nowrap
+    position: relative
+    align-items: center
+    justify-content: space-between
+  & > .card_name p
+    text-transform: uppercase
+    color: $text-color
+    font-size: .8rem
+    z-index: 10
+  & > .card_name > .add_favorite
+    z-index: 10
+  & > .card_name > .add_favorite > img
+    width: 15px
+    z-index: 10
+  & > .card_name:before
+    content: ""
+    background-color:$color-secondary
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    height: 6px
+    transition: all .3s ease-out
+  & > .card_name:after
+    content: ""
+    background-color:$main-contrast
+    position: absolute
+    bottom: 0
+    right: 0
+    height: 40px
+    width: 40px
+    transform: rotate(45deg) translate(90%)
+    transition: all .3s ease-out
+.character_card:hover > .card_name:before
+    height: 100%
+
+  
