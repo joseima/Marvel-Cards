@@ -11,8 +11,8 @@ import '../../sass/globals.sass';
 const AppRoutes = () => {
   let routes = useRoutes([
     { path: '/', element: <Home /> },
-    { path: '/character', element: <Character /> },
-    { path: '/*', element: <NotFound /> }
+    { path: '/character/*', element: <Character /> },
+   // { path: '/*', element: <NotFound /> }
   ])
 
   return routes;

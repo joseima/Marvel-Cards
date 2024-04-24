@@ -2,6 +2,14 @@ export interface Character {
     id: number;
     name: string;
     description: string;
-    thumbnail: object;
-    comics: object;
+    thumbnail: string;
+    extension: string;
+  }
+
+
+  export interface Comic {
+    id: number;
+    title: string;
+    thumbnail: string;
+    extension: string;
   }

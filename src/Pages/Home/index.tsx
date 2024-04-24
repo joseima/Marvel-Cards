@@ -1,28 +1,32 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { MarvelCardsContext } from '../../Context';
 import Card from '../../Components/Card'
+import { getCharacters } from '../../Utils/Services/marvel';
 import {Character} from '../../types'
 import './Home.sass';
 
 
 
-const Home = () => {
-  const [chars, setChars] = useState<Character[]>([]);
-  useEffect(()=> {
-    fetch('https://gateway.marvel.com/v1/public/characters?ts=1&apikey=175b5a321cf12c34dd606e765e4f0c83&hash=ec70ff7c4fe994fb01299cd7b9324256&limit=50')
-    .then(response => response.json())
-    .then(data => setChars(data.data.results))
-  },[])
+const Home = (chars: any) => {
+  const context  = useContext<any>(MarvelCardsContext)
+  const characters = context.chars;
 
     return (
       <div className="main">
         {
-         chars?.map(char => {
-         return <Card key={char.id} char={char} />
+         characters?.map((char : any)  => {
+         return (
+          <Link key={char.id} to={`/character/${char.id}`}>
+            <Card  char={char} />
+           </Link>
+         )
         })
         }
       </div>
     );
   }
+  
   
   export default Home;
   

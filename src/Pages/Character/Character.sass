@@ -1,0 +1,119 @@
+@import "../../sass/globals.sass"
+
+.character_details > .info
+  background-color: $color-primary
+  display: flex
+  flex-flow: row nowrap
+  align-items: center
+  color: $color-primary
+  justify-content: space-evenly
+  width: 100%
+  max-width: 1600px
+  margin: 0px auto
+  padding: 0
+  box-sizing: border-box
+  position: relative
+  overflow: hidden
+  @media screen and (max-width: $small)
+    flex-flow: column wrap
+  & > .infoCont 
+    display: flex
+    flex-flow: column wrap
+    align-items: left
+    padding: 0 5% 
+    width: 70%
+    @media screen and (max-width: $small)
+        width: 100%
+  & > .thumbCont 
+    display: flex
+    flex-flow: column wrap
+    align-items: center
+    width: 30%
+    @media screen and (max-width: $small)
+        width: 100%
+    &  > img 
+        width: 100%
+        height: 100%
+        object-fit: cover
+        object-position: center center
+  & > .infoCont > h1
+    color: $text-color
+    font-size: 2rem
+    margin: 2rem 0
+    letter-spacing: 0.05em
+    text-align: left
+    text-transform: uppercase
+    position: relative
+    & > .add_favorite
+        float: right
+    & > .add_favorite > img
+        z-index: 10
+  & > .infoCont > p
+    color: $text-color
+    font-size: 1rem
+    margin: 0 0 3rem 0
+    text-align: left
+
+.character_details > .info:after
+    content: ""
+    background-color:$main-contrast
+    position: absolute
+    bottom: 0
+    right: 0
+    height: 40px
+    width: 40px
+    transform: rotate(45deg) translate(90%)
+
+.comics_slider
+  background-color: $main-contrast
+  display: block
+  color: $color-primary
+  justify-content: space-evenly
+  width: 100%
+  max-width: 1600px
+  margin: 0px auto
+  padding: 50px
+  box-sizing: border-box
+  position: relative
+  overflow: hidden
+  & > h3
+    margin-top: 0
+    font-size: 1.5rem
+.comics_wrapper
+  background-color: $main-contrast
+  display: flex
+  flex-flow: row nowrap
+  align-items: center
+  color: $color-primary
+  justify-content: space-evenly
+  margin: 0px auto
+  padding: 0 0 20px
+  box-sizing: border-box
+  position: relative
+  overflow: auto
+  overflow-y: hidden
+  scrollbar-width: thin
+  scrollbar-color: $color-secondary $background-color
+
+.comics_wrapper::-webkit-scrollbar 
+  width: 8px
+
+.comics_wrapper::-webkit-scrollbar-track 
+  background: $color-secondary
+
+.comics_wrapper::-webkit-scrollbar-thumb 
+  background-color: $gradient
+  border: none
+
+.comics_slider .comicCard
+    margin-right: 10px
+    & > .thumb
+        width: 200px
+        height: 300px
+    & > p
+        margin: 0
+        font-size: .8rem
+        font-weight: 700
+        font-stretch: ultra-condensed
+    & > span
+        font-size: .7rem
