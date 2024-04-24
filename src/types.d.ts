@@ -13,3 +13,8 @@ export interface Character {
     thumbnail: string;
     extension: string;
   }
+
+  export type CountContextType = {
+    count: number,
+    setCount: React.Dispatch<React.SetStateAction<number>>
+  }

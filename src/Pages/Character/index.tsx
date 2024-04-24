@@ -23,13 +23,54 @@ const Character = () => {
     });
     async function getCharComics() {
         const listComics = await getComics(Number(charID));
-        context.setComics(listComics);
+        const reversedComics = listComics.reverse();
+        context.setComics(reversedComics);
     }
     getCharComics();
   },[])
 
+
+  const renderIcon = (id : number) => {
+    let isInFavorites : boolean = false
+    if (context.charsFavorites.length > 0) {
+       context.charsFavorites.map((char: any) => {
+        if (char.id === id) {
+          isInFavorites = true
+        } 
+      })
+    }
+    if (isInFavorites) {
+      return (
+        <span className='add_favorite'
+          onClick ={() => removefromFavorites(characterDesc.id) }
+       >
+           <img  src={favoriteStar} alt='Remove from favorites' />
+       </span>
+      )
+    } else {
+      return (
+        <span className='add_favorite'
+          onClick ={() => addToFavorites(characterDesc)}
+      >
+          <img  src={favoriteUnselected} alt='Add to favorites' />
+      </span>
+      )
+    }
+  };
+
+  const addToFavorites = (characterDesc : any) => {
+    context.setCharsFavorites([...context.charsFavorites, characterDesc]);
+    context.setCount(context.count  + 1);  
+  };
+
+  const removefromFavorites = (id : number) => {
+    const filteredFavorites = context.charsFavorites.filter((character : any) => character.id != id)
+    context.setCharsFavorites(filteredFavorites);
+    context.setCount(context.count  - 1);  
+  };
+
   if (!characterDesc) {
-    return <div>Loading Character...</div>;
+    return <div  className="main"><h3>Loading Character...</h3></div>;
   } else {
       return (
         <div className="character_details">
@@ -39,15 +80,13 @@ const Character = () => {
             </div>
             <div className="infoCont">
               <h1>{characterDesc.name}
-                <span className='add_favorite'>
-                    <img  src={favoriteUnselected} alt='Add to favorites' />
-                </span>
+                {renderIcon(characterDesc.id)}
               </h1>
               <p>{characterDesc.description || "No description on API"}</p>
               </div>
           </div>
           <div className="comics_slider"> 
-          <h3>COMICS</h3>
+             <h3>COMICS</h3>
             <div className="comics_wrapper"> 
             {
             comics?.map((comic : Comic)  => {
@@ -58,7 +97,7 @@ const Character = () => {
                   <div className="comicCard">
                   <img className="thumb" src={`${comic.thumbnail}.${comic.extension}`} alt={comic.title} />
                         <p>{titleFinal}</p>
-                        <span>{year}</span>
+                        <span>{year || 'No year on API'}</span>
                   </div>
                   </div>
                 )

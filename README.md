@@ -18,4 +18,4 @@ Viable implementations:
 - Fine-tune context-props typing, removing "any" which is not good practice
 - Is possible to implement a reducer to handle the context in a more modular way with a dispatcher.
 - Is posible to implement local storage to handle the Favorites list state in order to don't lose the favorites from memory when the browser resets.
-
+- Implement the Comics carrousell in a generic component separated from the Character view

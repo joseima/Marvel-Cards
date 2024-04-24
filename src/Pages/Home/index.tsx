@@ -1,14 +1,11 @@
-import { useState, useEffect, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { useContext } from 'react';
 import { MarvelCardsContext } from '../../Context';
 import Card from '../../Components/Card'
-import { getCharacters } from '../../Utils/Services/marvel';
-import {Character} from '../../types'
 import './Home.sass';
 
 
 
-const Home = (chars: any) => {
+const Home = () => {
   const context  = useContext<any>(MarvelCardsContext)
   const characters = context.chars;
 
@@ -17,9 +14,7 @@ const Home = (chars: any) => {
         {
          characters?.map((char : any)  => {
          return (
-          <Link key={char.id} to={`/character/${char.id}`}>
-            <Card  char={char} />
-           </Link>
+            <Card key={char.id} char={char} />
          )
         })
         }
