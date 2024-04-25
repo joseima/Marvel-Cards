@@ -4,6 +4,9 @@
 
 You can see a list of 50 Marvel Characters, and choose your favorite ones. Can see a detailed profile of the character and the comics where he appeared
 
+Deploy in Netlify
+https://main--marvel-characters-cards.netlify.app/
+
 //________________________________________________________________________////
 
 Features:
