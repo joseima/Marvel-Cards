@@ -1,0 +1,29 @@
+@import "../../sass/globals.sass"
+
+.filter
+  background-color: $main-contrast
+  color: $text-color
+  width: 100%
+  margin: 0px auto
+  padding: 0px 
+  box-sizing: border-box
+  & > .filterInput
+    width: 100%
+    border: none
+    border-bottom: 1px solid $color_primary
+    background-image: url('../../statics/searchIcon.png')
+    background-repeat: no-repeat
+    background-position: left center
+    background-size: 20px
+    font-size: 1rem
+    margin: 1rem 0
+    padding: 10px 10px 10px 30px
+    outline: none
+    & > a 
+      text-decoration: none
+    & > a .favorites_counter
+      vertical-align: middle
+      font-size: 1rem
+      text-align: center
+      color: $text-color
+      margin-left: 10px

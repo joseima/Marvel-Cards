@@ -4,7 +4,7 @@ export const getCharacters = async () =>  {
     const {BASE_URL, TS, KEY, HASH} = apiUrls;
     const respChars:any = [] 
     try {
-        const response = await fetch(
+         await fetch(
             `${BASE_URL}?ts=${TS}&apikey=${KEY}&hash=${HASH}&limit=50`            
         )
         .then(response =>  response.json())
@@ -30,7 +30,7 @@ export const getComics = async (id : number) =>  {
     const {BASE_URL, TS, KEY, HASH} = apiUrls;
     const respComics:any = [] 
     try {
-        const response = await fetch(
+         await fetch(
             `${BASE_URL}/${id}/comics?ts=${TS}&apikey=${KEY}&hash=${HASH}&limit=20`            
         )
         .then(response =>  response.json())

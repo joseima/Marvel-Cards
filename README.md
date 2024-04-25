@@ -12,9 +12,11 @@ Features:
 - The aplication uses react-router-dom for the views, considering future extensions and new views. Also 404 an others posibilities
 - the Context is handled separated so as the Marvel API service
 - Using SASS from the SASS dir an statics files  from Statics.
-- Typescript omplemented with a Characters interface declared in types.d.ts
+- Typescript implemented (almost all), interfaces declared in types.d.ts
 
-Viable implementations:
+Viable onwards implementations:
+- Manage loading with State an no with conditionals
+- add loading frames to loading renders
 - Fine-tune context-props typing, removing "any" which is not good practice
 - Is possible to implement a reducer to handle the context in a more modular way with a dispatcher.
 - Is posible to implement local storage to handle the Favorites list state in order to don't lose the favorites from memory when the browser resets.

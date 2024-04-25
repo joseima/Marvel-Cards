@@ -7,13 +7,16 @@ export const  MarvelCardsContext = createContext<CountContextType | unknown>(und
 
 export  const MarvelCardsProvider   = ({children}: {children: ReactNode})  => {
     const [count, setCount] = useState <number>(0);
-    const [chars, setChars] = useState<Character[]>([]);
+    const [chars, setChars] = useState<any>([]);
     const [charsFavorites, setCharsFavorites] = useState([]);
     const [comics, setComics] = useState<Comic[]>([]);
 
     const [showingFiltered, setshowingFiltered] = useState(false)
     const showFiltered = () => setshowingFiltered(true)
     const hideFiltered = () => setshowingFiltered(false)
+
+    const [searchChar, setSearchChar] = useState <any>(null);
+    const [filteredChars, setFilteredChars] = useState<any>([]);
     
     
     useEffect( ()=> {
@@ -23,6 +26,18 @@ export  const MarvelCardsProvider   = ({children}: {children: ReactNode})  => {
         }
         getChars();
     },[])
+
+
+    useEffect(()=> {
+        if(searchChar?.length > 0) {
+            const filtered = (chars?.filter((char:any) => char.name.toLowerCase().includes(searchChar.toLowerCase())))
+            setFilteredChars(filtered)
+        } else {
+            setFilteredChars([])
+        }
+    },[chars, searchChar])
+
+
 
     return (
         <MarvelCardsContext.Provider value={{
@@ -36,7 +51,11 @@ export  const MarvelCardsProvider   = ({children}: {children: ReactNode})  => {
             setCharsFavorites,
             showingFiltered,
             showFiltered,
-            hideFiltered
+            hideFiltered,
+            searchChar,
+            setSearchChar,
+            filteredChars,
+            setFilteredChars
         }}>
             {children}
         </MarvelCardsContext.Provider>
