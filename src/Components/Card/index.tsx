@@ -55,7 +55,7 @@ const Card  = (char : any) => {
     return (
         <figure className="character_card">
             <Link key={character.id} to={`/character/${character.id}`}>
-              <img className="thumb" src={`${character.thumbnail}.${character.extension}`} alt={character.name} />
+              <img className="thumb"  src={`${character.thumbnail}.${character.extension}`} alt={character.name} />
             </Link>
             <div className="card_name">
                 <p>{character.name}</p>

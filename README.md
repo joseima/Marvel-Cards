@@ -17,6 +17,10 @@ Features:
 - Using SASS from the SASS dir an statics files  from Statics.
 - Typescript implemented (almost all), interfaces declared in types.d.ts
 
+- Testing with Jest and Rect Test domrenderer. 
+    - Unit test on Card nd Header components
+    - E2e test on App 
+
 Viable onwards implementations:
 - Manage loading with State an no with conditionals
 - add loading frames to loading renders
